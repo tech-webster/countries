@@ -1,14 +1,27 @@
+<div align="center">
+
 # @tw-labs/countries
 
-Comprehensive country data with utilities and an optional React hook. TypeScript-first, framework-agnostic, and tree-shakeable.
+**Comprehensive country data with utilities and an optional React hook.**
 
-[![npm version](https://badge.fury.io/js/@tw-labs%2Fcountries.svg)](https://badge.fury.io/js/@tw-labs%2Fcountries)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+TypeScript-first · Framework-agnostic · Tree-shakeable · Zero dependencies
+
+<br />
+
+[![npm version](https://img.shields.io/npm/v/@tw-labs/countries?style=flat-square&logo=npm&logoColor=white&color=CB3837)](https://www.npmjs.com/package/@tw-labs/countries)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](https://opensource.org/licenses/MIT)
+[![TypeScript](https://img.shields.io/badge/TypeScript-ready-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org)
+[![Tree Shakeable](https://img.shields.io/badge/Tree%20Shakeable-yes-brightgreen?style=flat-square)](https://developer.mozilla.org/en-US/docs/Glossary/Tree_shaking)
+[![Next.js](https://img.shields.io/badge/Next.js-compatible-black?style=flat-square&logo=next.js&logoColor=white)](https://nextjs.org)
+
+</div>
+
+---
 
 ## Features
 
-- **195+ countries** with ISO alpha-2/alpha-3 codes, name, phone dial code, capital, continent, currency, and timezones
-- **Flag support** — emoji flags, PNG (20px, 40px), and SVG via flagcdn.com
+- **195+ countries** — ISO alpha-2/alpha-3 codes, name, phone dial code, capital, continent, currency, and timezones
+- **Flag support** — emoji flags, PNG (20px, 40px), and SVG via [flagcdn.com](https://flagcdn.com)
 - **Tree-shakeable** — import only the countries you need via the `/data` subpath
 - **Framework-agnostic core** — works in Node.js, Vue, Svelte, and anywhere else
 - **React hook** — `useCountries` with filtering, sorting, and conditional flag types
@@ -16,17 +29,46 @@ Comprehensive country data with utilities and an optional React hook. TypeScript
 - **TypeScript-first** — full type safety and IntelliSense out of the box
 - **Zero dependencies** — no runtime dependencies
 
+---
+
 ## Installation
 
-```bash
-npm install @tw-labs/countries
-# or
-yarn add @tw-labs/countries
-# or
-pnpm add @tw-labs/countries
-# or
-bun add @tw-labs/countries
-```
+<table>
+  <tr>
+    <td>
+      <img src="https://img.shields.io/badge/npm-CB3837?style=flat-square&logo=npm&logoColor=white" alt="npm" />
+    </td>
+    <td>
+      <code>npm install @tw-labs/countries</code>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img src="https://img.shields.io/badge/yarn-2C8EBB?style=flat-square&logo=yarn&logoColor=white" alt="yarn" />
+    </td>
+    <td>
+      <code>yarn add @tw-labs/countries</code>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img src="https://img.shields.io/badge/pnpm-F69220?style=flat-square&logo=pnpm&logoColor=white" alt="pnpm" />
+    </td>
+    <td>
+      <code>pnpm add @tw-labs/countries</code>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img src="https://img.shields.io/badge/bun-000000?style=flat-square&logo=bun&logoColor=white" alt="bun" />
+    </td>
+    <td>
+      <code>bun add @tw-labs/countries</code>
+    </td>
+  </tr>
+</table>
+
+---
 
 ## Import Paths
 
@@ -99,7 +141,7 @@ const sorted = getAllCountries({
   sort: { by: "label", order: "asc" },
 });
 
-// Both
+// Filtered + sorted
 const result = getAllCountries({
   filter: (c) => c.continent === "Asia",
   sort: { by: "label", order: "asc" },
@@ -136,7 +178,7 @@ import { US, GB, DE, FR } from "@tw-labs/countries/data";
 // Only these 4 country objects are included in your bundle
 ```
 
-This is ideal for static lists, country pickers with a fixed set, or server-side code that only handles specific regions.
+> **Note:** `getCountryByCode("US")` is for runtime dynamic lookups and includes the full dataset. Use the `/data` subpath when the country codes are known at build time.
 
 ---
 
@@ -225,9 +267,9 @@ function SearchableCountryPicker() {
 ### Sort options
 
 ```typescript
-useCountries({ sort: { by: "label", order: "asc" } });    // A → Z by name
-useCountries({ sort: { by: "code", order: "asc" } });     // AD → ZW by alpha-2
-useCountries({ sort: { by: "phone", order: "asc" } });    // by dial code
+useCountries({ sort: { by: "label",     order: "asc" } }); // A → Z by name
+useCountries({ sort: { by: "code",      order: "asc" } }); // AD → ZW
+useCountries({ sort: { by: "phone",     order: "asc" } }); // by dial code
 useCountries({ sort: { by: "continent", order: "asc" } }); // grouped by continent
 ```
 
@@ -237,11 +279,12 @@ useCountries({ sort: { by: "continent", order: "asc" } }); // grouped by contine
 
 ```typescript
 // app/components/PhoneInput.tsx — Client Component
-"use client"; // only needed if this file is not already a client component
+// No need to add "use client" manually — it's built into @tw-labs/countries/react
 import { useCountries } from "@tw-labs/countries/react";
 
 // app/api/validate/route.ts — Server Component / Route Handler
-import { getCountryByCode } from "@tw-labs/countries"; // no "use client" needed
+// Works with no configuration — no "use client" in the core entry
+import { getCountryByCode } from "@tw-labs/countries";
 ```
 
 ---
@@ -287,4 +330,4 @@ type CountryWithFlags = Country & {
 
 ## License
 
-MIT
+MIT © [TechWebster](https://techwebster.com)
