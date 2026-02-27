@@ -5,11 +5,11 @@ export const toFlagEmoji = (code: string): string =>
     ...code
       .toUpperCase()
       .split("")
-      .map((c) => 127397 + c.charCodeAt(0))
+      .map((c) => 127397 + c.charCodeAt(0)),
   );
 
 export const toFlagUrls = (
-  code: string
+  code: string,
 ): Pick<CountryWithFlags, "flagPng20" | "flagPng40" | "flagSvg" | "srcSet"> => {
   const lower = code.toLowerCase();
   return {

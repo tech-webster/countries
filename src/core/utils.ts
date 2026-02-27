@@ -1,13 +1,10 @@
 import * as _allCountries from "../data/countries";
-import type { Country, CountryWithFlags, FilterSortOptions } from "./types";
 import { withFlags } from "./flags";
+import type { Country, CountryWithFlags, FilterSortOptions } from "./types";
 
 const allCountriesArray: Country[] = Object.values(_allCountries);
 
-const applyOptions = (
-  countries: Country[],
-  options?: FilterSortOptions
-): Country[] => {
+const applyOptions = (countries: Country[], options?: FilterSortOptions): Country[] => {
   let result = options?.filter ? countries.filter(options.filter) : [...countries];
 
   if (options?.sort) {
@@ -26,18 +23,16 @@ const applyOptions = (
 export const getAllCountries = (options?: FilterSortOptions): Country[] =>
   applyOptions(allCountriesArray, options);
 
-export const getAllCountriesWithFlags = (
-  options?: FilterSortOptions
-): CountryWithFlags[] =>
+export const getAllCountriesWithFlags = (options?: FilterSortOptions): CountryWithFlags[] =>
   applyOptions(allCountriesArray, options).map(withFlags);
 
+// Intentional: runtime lookup by code; tree-shakeable path is @tw-labs/countries/data
 export const getCountryByCode = (code: string): Country | undefined =>
+  // biome-ignore lint/performance/noDynamicNamespaceImportAccess: required for getCountryByCode lookup
   _allCountries[code.toUpperCase() as keyof typeof _allCountries];
 
 export const getCountryByAlpha3 = (alpha3: string): Country | undefined =>
-  allCountriesArray.find(
-    (c) => c.alpha3.toLowerCase() === alpha3.toLowerCase()
-  );
+  allCountriesArray.find((c) => c.alpha3.toLowerCase() === alpha3.toLowerCase());
 
 export const getCountryByPhone = (phone: string): Country[] =>
   allCountriesArray.filter((c) => c.phone === phone);

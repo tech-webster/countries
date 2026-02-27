@@ -7,7 +7,7 @@ type UseCountriesOptions<T extends boolean> = FilterSortOptions & {
 };
 
 export const useCountries = <T extends boolean = false>(
-  options: UseCountriesOptions<T> = {}
+  options: UseCountriesOptions<T> = {},
 ): T extends true ? CountryWithFlags[] : Country[] => {
   const { includeFlags, filter, sort } = options;
 
@@ -17,8 +17,6 @@ export const useCountries = <T extends boolean = false>(
         ? CountryWithFlags[]
         : Country[];
     }
-    return getAllCountries({ filter, sort }) as T extends true
-      ? CountryWithFlags[]
-      : Country[];
+    return getAllCountries({ filter, sort }) as T extends true ? CountryWithFlags[] : Country[];
   }, [includeFlags, filter, sort]);
 };
