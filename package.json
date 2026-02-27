@@ -1,6 +1,6 @@
 {
   "name": "@tw-labs/countries",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Comprehensive country data with utilities and React hook — tree-shakeable, TypeScript-first, framework-agnostic",
   "keywords": [
     "countries",
@@ -46,9 +46,13 @@
   "sideEffects": false,
   "scripts": {
     "build": "tsup && node scripts/add-use-client.mjs",
-    "dev": "tsup --watch"
+    "dev": "tsup --watch",
+    "lint": "biome check .",
+    "lint:fix": "biome check --write .",
+    "format": "biome format --write ."
   },
   "devDependencies": {
+    "@biomejs/biome": "latest",
     "@types/react": "latest",
     "tsup": "latest",
     "typescript": "latest"

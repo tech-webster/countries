@@ -33,40 +33,29 @@ TypeScript-first · Framework-agnostic · Tree-shakeable · Zero dependencies
 
 ## Installation
 
-<table>
-  <tr>
-    <td>
-      <img src="https://img.shields.io/badge/npm-CB3837?style=flat-square&logo=npm&logoColor=white" alt="npm" />
-    </td>
-    <td>
-      <code>npm install @tw-labs/countries</code>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <img src="https://img.shields.io/badge/yarn-2C8EBB?style=flat-square&logo=yarn&logoColor=white" alt="yarn" />
-    </td>
-    <td>
-      <code>yarn add @tw-labs/countries</code>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <img src="https://img.shields.io/badge/pnpm-F69220?style=flat-square&logo=pnpm&logoColor=white" alt="pnpm" />
-    </td>
-    <td>
-      <code>pnpm add @tw-labs/countries</code>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <img src="https://img.shields.io/badge/bun-000000?style=flat-square&logo=bun&logoColor=white" alt="bun" />
-    </td>
-    <td>
-      <code>bun add @tw-labs/countries</code>
-    </td>
-  </tr>
-</table>
+<img src="https://img.shields.io/badge/npm-CB3837?style=flat-square&logo=npm&logoColor=white" alt="npm" />
+
+```bash
+npm install @tw-labs/countries
+```
+
+<img src="https://img.shields.io/badge/yarn-2C8EBB?style=flat-square&logo=yarn&logoColor=white" alt="yarn" />
+
+```bash
+yarn add @tw-labs/countries
+```
+
+<img src="https://img.shields.io/badge/pnpm-F69220?style=flat-square&logo=pnpm&logoColor=white" alt="pnpm" />
+
+```bash
+pnpm add @tw-labs/countries
+```
+
+<img src="https://img.shields.io/badge/bun-000000?style=flat-square&logo=bun&logoColor=white" alt="bun" />
+
+```bash
+bun add @tw-labs/countries
+```
 
 ---
 
