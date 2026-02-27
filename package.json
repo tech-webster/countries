@@ -1,6 +1,6 @@
 {
   "name": "@tw-labs/countries",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Comprehensive country data with utilities and React hook — tree-shakeable, TypeScript-first, framework-agnostic",
   "keywords": [
     "countries",
