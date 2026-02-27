@@ -24,6 +24,8 @@ npm install @tw-labs/countries
 yarn add @tw-labs/countries
 # or
 pnpm add @tw-labs/countries
+# or
+bun add @tw-labs/countries
 ```
 
 ## Import Paths
